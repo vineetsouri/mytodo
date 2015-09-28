@@ -1,2 +1,16 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<section id="mytasks">
+  <h1>My Tasks</h1>
+
+  <div class="well">
+    <%= simple_form_for @new_task, html: { class: 'form-inline' } do |f| %>
+      <%= f.input :title, label: false, placeholder: "Please be organized by creating TODO tasks", autofocus: true %>
+      <%= f.submit "Create", class: "btn btn-sm btn-success"%>
+    <% end %>
+  </div>
+
+  <ul>
+    <% Task.all.each do |task| %>
+      <li><%= task.title %></li>
+    <% end %>
+  </ul>
+</section>
