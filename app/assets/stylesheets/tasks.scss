@@ -1,6 +1,32 @@
 #mytasks{
+
+  #task_title{
+    text-align: center;
+    width: 40em;
+  }
+
+  ul {
+    li {
+      i.fa-square-o {
+        display: inline-block;
+      }
+
+      i.fa-check-square-o {
+        display: none;
+      }
+
+      &.done {
+        i.fa-square-o {
+          display: none;
+        }
+
+        i.fa-check-square-o {
+          display: inline-block;
+        }
+      }
+    }
+  }
 }
-#task_title{
-  text-align: center;
-  width: 40em;
+a {
+  font-size: 0.8em;
 }
