@@ -30,3 +30,9 @@
 a {
   font-size: 0.8em;
 }
+
+.trash{
+  &:hover{
+  cursor: pointer;
+  }
+}

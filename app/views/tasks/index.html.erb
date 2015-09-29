@@ -1,5 +1,5 @@
 <section id="mytasks">
-  <h1>My Tasks</h1>
+  <h1 class="centre">My Tasks</h1>
 
   <div class="well">
     <%= simple_form_for @new_task, html: { class: 'form-inline' } do |f| %>
@@ -10,11 +10,13 @@
 
   <ul class="list-ul">
     <% Task.all.each do |task| %>
-      <li class="<%= task.done? ? 'done' : '' %>">
-      <i class="fa fa-check-square-o"></i>
-      <i class="fa fa-square-o"></i>
+      <li class="<%= task.done? ? 'done' : '' %> well">
+      <%= fa_icon "check-square-o" %>
+      <%= fa_icon "square-o" %>
       <%= task.title %>
       <%= link_to "(Mark #{task.done? ? 'Undone' : 'Done'})", task_path(task), method: :patch %>
+      <%= done_time_tag(task) %>
+      <%= link_to fa_icon('trash 2x'), task_path(task), method: :delete, class: "pull-right" %>
       </li>
     <% end %>
   </ul>
