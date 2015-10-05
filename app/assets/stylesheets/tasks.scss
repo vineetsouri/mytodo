@@ -20,6 +20,11 @@
         cursor: pointer;
       }
       
+      span.time {
+        font-size: 0.7em;
+        color: #969696;
+        display: inline-block;
+      }
       .delete {
         display: none;
         color: #c0392b;

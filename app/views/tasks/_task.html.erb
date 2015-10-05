@@ -5,6 +5,7 @@
     <%= fa_icon "check-square-o" %>
     <%= fa_icon "square-o" %>
     <%= task.title %>
+    <%= done_time_tag(task) %>
   </span>
   <%= link_to fa_icon('trash-o'), task_path(task), method: :delete, remote: true, class: "delete" %>
 </li>
