@@ -8,9 +8,10 @@
     <% end %>
   </div>
 
-  <ul class="list-ul">
+  <ul class="list-ul" id="sortable">
     <% Task.all.each do |task| %>
       <li class="<%= task.done? ? 'done' : '' %> well">
+      <%= fa_icon "reorder", class: "handle" %>
       <%= fa_icon "check-square-o" %>
       <%= fa_icon "square-o" %>
       <%= task.title %>
