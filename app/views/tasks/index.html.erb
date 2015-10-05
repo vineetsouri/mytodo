@@ -1,24 +1,14 @@
-<section id="mytasks">
-  <h1 class="centre">My Tasks</h1>
+<section id="tasks">
+  <h1 id="heading">My Tasks</h1>
 
   <div class="well">
-    <%= simple_form_for @new_task, html: { class: 'form-inline' } do |f| %>
-      <%= f.input :title, label: false, placeholder: "Please be organized by creating TODO tasks", autofocus: true %>
-      <%= f.submit "Create", class: "btn btn-sm btn-success"%>
+    <%= simple_form_for @new_task, remote: true, html: { class: 'form-inline' } do |f| %>
+      <%= f.input :title, label: false, placeholder: "What do you want to do?", autofocus: true %>
+      <%= f.submit "Create Task", class: "btn btn-primary" %>
     <% end %>
   </div>
 
-  <ul class="list-ul" id="sortable">
-    <% Task.all.each do |task| %>
-      <li class="<%= task.done? ? 'done' : '' %> well">
-      <%= fa_icon "reorder", class: "handle" %>
-      <%= fa_icon "check-square-o" %>
-      <%= fa_icon "square-o" %>
-      <%= task.title %>
-      <%= link_to "(Mark #{task.done? ? 'Undone' : 'Done'})", task_path(task), method: :patch %>
-      <%= done_time_tag(task) %>
-      <%= link_to fa_icon('trash 2x'), task_path(task), method: :delete, class: "pull-right" %>
-      </li>
-    <% end %>
+  <ul class="list-unstyled" id="sortable">
+      <%= render @tasks %>
   </ul>
 </section>

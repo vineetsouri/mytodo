@@ -1,12 +1,39 @@
-#mytasks{
-
-  #task_title{
+#tasks {
+  #heading{
     text-align: center;
-    width: 40em;
+  }
+  form {
+    text-align: center;
+    input.string {
+      width: 20em;
+    }
   }
 
   ul {
     li {
+      font-size: 1.5em;
+      padding: 0.3em 0.3em;
+      background-color: #FFF;
+      transition: background-color 0.3s ease-in;
+
+      span.content {
+        cursor: pointer;
+      }
+      
+      .delete {
+        display: none;
+        color: #c0392b;
+      }
+
+      &:hover {
+        background-color: #EEE;
+
+        .delete {
+          display: inline-block;
+          float: right;
+        }
+      }
+
       i.fa-square-o {
         display: inline-block;
       }
@@ -14,6 +41,7 @@
       i.fa-check-square-o {
         display: none;
       }
+
 
       &.done {
         i.fa-square-o {
@@ -25,14 +53,5 @@
         }
       }
     }
-  }
-}
-a {
-  font-size: 0.8em;
-}
-
-.trash{
-  &:hover{
-  cursor: pointer;
   }
 }
